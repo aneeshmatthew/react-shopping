@@ -1,4 +1,4 @@
-import type { Category, Product } from "@/types";
+import type { Product } from "@/types";
 
 const BASE_URL = "https://fakestoreapi.com";
 
@@ -16,11 +16,11 @@ export async function getProduct(id: number): Promise<Product> {
   const res = await fetch(`${BASE_URL}/products/${id}`, {
     next: { revalidate: 3600 },
   });
-  if (!res.ok) throw new Error(`Failed to fetch product ${id}`);
+  if (!res.ok) throw new Error("Failed to fetch product");
   return res.json();
 }
 
-export async function getCategories(): Promise<Category[]> {
+export async function getCategories(): Promise<string[]> {
   const res = await fetch(`${BASE_URL}/products/categories`, {
     next: { revalidate: 86400 },
   });

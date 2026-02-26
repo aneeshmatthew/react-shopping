@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
-import { useCartStore } from "@/store/cart";
+import { useCartStore } from "@/lib/client/store";
 import CartSidebar from "./CartSidebar";
 import { useState, useEffect } from "react";
 
